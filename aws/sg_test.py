@@ -1,17 +1,25 @@
-import boto3, json, time
+#!/usr/bin/python3
+
+import boto3, json, time, click
 from botocore.exceptions import ClientError
 
+@click.group()
+def cli():
+    "Cli tool for AWS"
+    pass
+
+@cli.command("describe")
 def describe_security_groups():
     ec2 = boto3.client('ec2')
 
     try:
         response = ec2.describe_security_groups();
         for sg in response['SecurityGroups']:
-            print(sg['Description'])
+            print(sg)
     except ClientError as e:
         print(e)
 
-
+@cli.command("make")
 def make_test_security_group():
     ec2 = boto3.client('ec2')
     vpcs = ec2.describe_vpcs()
@@ -38,8 +46,7 @@ def make_test_security_group():
     except ClientError as e:
         print(e)
 
-
-
-
 if __name__ == "__main__":
-    describe_security_groups()
+    cli()
+
+
