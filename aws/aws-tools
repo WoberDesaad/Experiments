@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+"""Aws command line and automation tool
+    -Describe all Security Groups
+    -Create a new Security Group
+"""
 
 import boto3, json, time, click
 from botocore.exceptions import ClientError
