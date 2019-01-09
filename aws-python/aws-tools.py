@@ -9,6 +9,8 @@
 import click
 from bucket import BucketManager
 from security_group import SecurityGroupManager
+from iam import IAMManager
+
 
 @click.group()
 def cli():
@@ -24,6 +26,15 @@ def bucket():
 def security_group():
     """Security Group tool for AWS"""
     pass
+
+@cli.group()
+def iam():
+    """IAM tool for AWS"""
+    pass
+
+@iam.command()
+def list():
+    IAMManager.list_users()
 
 @bucket.command()
 def list(bucket_name=None):
