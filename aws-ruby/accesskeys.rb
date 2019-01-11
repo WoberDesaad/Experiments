@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-
+# -*- coding: utf-8 -*-
 
 require 'aws-sdk-iam'  # v2: require 'aws-sdk'
 require 'date'
@@ -40,9 +40,7 @@ iam.list_users.users.each do |user|
   puts "  Access keys:"
 
   iam.list_access_keys({user_name: name}).access_key_metadata.each do |key|
-	  puts "    #{key.access_key_id} -- Age: #{get_key_age(key.create_date)}"
+    puts "    #{key.access_key_id} -- Age: #{get_key_age(key.create_date)} days"
   end
 end
 
-details = iam.get_account_authorization_details()
-puts details
