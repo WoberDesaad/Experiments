@@ -6,6 +6,7 @@ containers:
                 commands:
                     - apt update
                     - apt install -y npm
+                    - npm config set strict-ssl false
                     - npm install -g serverless
             build:
                 commands:
