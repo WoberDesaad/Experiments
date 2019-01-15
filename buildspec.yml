@@ -4,9 +4,10 @@ containers:
         phases:
             install:
                 commands:
+                    - apt update
                     - apt install -y npm
                     - npm install
                     - npm install -g serverless
             build:
                 commands:
-                    - serverless deploy --stage cicd | tee deploy.out
+                    - serverless package
