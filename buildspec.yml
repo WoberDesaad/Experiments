@@ -4,6 +4,7 @@ containers:
         phases:
             install:
                 commands:
+                    - apt install -y npm
                     - npm install
                     - npm install -g serverless
             build:
