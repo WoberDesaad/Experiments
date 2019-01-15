@@ -1,0 +1,15 @@
+Transform: 'AWS::Serverless-2016-10-31'
+Resources:
+    GetSAMPartyCount:
+        Type: AWS::Serverless::Function
+        Properties:
+            Handler: lambda_function.lambda_hanler
+            Runtime: python3.7
+            CodeUri: ./
+            Environment:
+            Events:
+              GetResource:
+                Type: Api
+                Properties:
+                  Path: /sam
+                  Method: get

@@ -1,13 +1,18 @@
 version: 0.0
+environment_variables:
+    plaintext:
+        "INPUT_FILE": "ReturnSimpleWeb.yaml"
+        "S3_BUCKET": ""
 containers:
     LambdaFunctions:
         phases:
             install:
                 commands:
-                    - apt update
-                    - apt install -y npm
-                    - npm config set strict-ssl false
-                    - npm install -g serverless
+                    - npm install
             build:
                 commands:
-                    - serverless package
+                    - aws cloudformation package --template $INPUT_FILE --s3-bucket $S3_BUCKET --output-template post-saml.yaml
+        artifacts:
+            files:
+                - post-saml.yaml
+                - beta.json
