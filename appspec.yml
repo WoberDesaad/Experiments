@@ -1,6 +1,0 @@
-version: 0.0
-resources:
-  - really-test:
-      type: "AWS::Lambda::Function"
-      properties:
-        name: really-test
