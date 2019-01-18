@@ -3,6 +3,7 @@
 
 require 'aws-sdk-iam'  # v2: require 'aws-sdk'
 require 'date'
+require 'cgi'
 
 
 def get_key_age(key_creation_date)
@@ -25,6 +26,7 @@ iam.list_users.users.each do |user|
   
   iam.list_user_policies({user_name: name}).policy_names.each do |policy|
     puts "    #{policy}"
+    
   end
 
   iam.list_attached_user_policies({user_name: name}).attached_policies.each do |policy|
@@ -33,7 +35,9 @@ iam.list_users.users.each do |user|
 
   iam.list_groups_for_user({user_name: name}).groups.each do |group|
     iam.list_attached_group_policies({group_name: group.group_name}).attached_policies.each do |policy|
-      puts "    #{policy}"
+      policy_arn = policy[:policy_arn]
+      policy_version = iam.get_policy({policy_arn: policy_arn})[:policy][:default_version_id]
+      puts "  #{CGI::unescape(iam.get_policy_version({ policy_arn: policy_arn, version_id: policy_version, })[:policy_version][:document])}"
     end
   end
   
