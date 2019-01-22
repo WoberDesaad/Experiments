@@ -4,6 +4,7 @@ pipeline {
     stage('build') {
       steps { 
         sh 'cd ./LAB8_QUAD'
+        sh 'pwd'
         sh 'make'
       }
     }
