@@ -8,7 +8,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh './QUAD_COMPRESS test.png 100'
+        sh 'cd LAB8_QUAD && ./QUAD_COMPRESS test.png 100'
         sh './QUAD_COMPRESS test.png 50'
         sh './QUAD_COMPRESS test.png 25'
         sh './QUAD_COMPRESS test.png 12'
