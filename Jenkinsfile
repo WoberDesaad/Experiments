@@ -5,6 +5,7 @@ pipeline {
       steps { 
         sh 'cd ./LAB8_QUAD'
         sh 'pwd'
+        sh 'ls'
         sh 'make'
       }
     }
