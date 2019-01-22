@@ -25,7 +25,7 @@ pipeline {
     stage('deploy') {
       steps {
         dir('LambdaDeployments'){
-          sh 'aws lambda create-function --function-name lambdajenkins --zip-file fileb://function.zip --handler handler.handler --runtime python3.7 --role arn:aws:iam::820315430153:role/test-lambdaIAMRole-8X3C9F220RGG'
+          sh 'aws lambda create-function --region us-east-1 --function-name lambdajenkins --zip-file fileb://function.zip --handler handler.handler --runtime python3.7 --role arn:aws:iam::820315430153:role/test-lambdaIAMRole-8X3C9F220RGG'
         }
       }
     }
