@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps { 
-        sh 'cd LAB8_QUAD'
+        sh 'cd LAB8_QUADsdfasdf'
         sh 'make'
       }
     }
