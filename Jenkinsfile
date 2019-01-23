@@ -11,6 +11,13 @@ pipeline {
         }
       }
     }
+    stage('deploy'){
+      steps {
+        dir('LambdaDeployments'){
+          sh 'bash ./checkFuncExist.sh'
+        }
+      }
+    }
     stage('test') {
       steps {
         dir('LAB8_QUAD'){
