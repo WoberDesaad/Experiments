@@ -13,9 +13,6 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        dir('LambdaDeployments'){
-          sh 'checkFuncExist.sh'
-        }
       }
     }
     stage('test') {
