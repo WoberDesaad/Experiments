@@ -1,0 +1,1 @@
+{"statusCode": 200, "body": "{\"message\": \"Hello, the current time is 21:18:05.912661\"}"}
