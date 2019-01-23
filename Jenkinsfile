@@ -11,10 +11,6 @@ pipeline {
         }
       }
     }
-    stage('deploy') {
-      steps {
-      }
-    }
     stage('test') {
       steps {
         dir('LAB8_QUAD'){
