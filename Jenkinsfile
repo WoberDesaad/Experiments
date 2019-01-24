@@ -28,7 +28,6 @@ pipeline {
           sh './QUAD_COMPRESS test.png 0'
         }
         sh 'aws lambda invoke --function-name lambdajenkins test.txt'	   
-        sh 'cat test.txt'
       }
     }
   }
