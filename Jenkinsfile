@@ -27,7 +27,9 @@ pipeline {
           sh './QUAD_COMPRESS test.png 12'
           sh './QUAD_COMPRESS test.png 0'
         }
-        sh 'aws lambda invoke --function-name lambdajenkins test.txt'	   
+        dir('LambdaDeployments'){
+          sh 'bash ./testFunc.sh'
+        }
       }
     }
   }
