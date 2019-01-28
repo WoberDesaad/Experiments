@@ -9,7 +9,7 @@ def handler(event, context):
         "message": str(current_time)
     }
 
-    response = 
+    response = { 
         "statusCode": 200,
         "body": json.dumps(body)
     }
