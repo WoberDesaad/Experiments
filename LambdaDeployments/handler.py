@@ -1,5 +1,6 @@
 import json
 import datetime
+import boto3
 
 
 def handler(event, context):
@@ -7,9 +8,8 @@ def handler(event, context):
     body = {
         "message": str(current_time)
     }
-    #Adding some comments. This will be different...
 
-    response = {
+    response = 
         "statusCode": 200,
         "body": json.dumps(body)
     }
